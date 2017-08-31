@@ -1,4 +1,4 @@
-# 快捷键 Mac OSX(first) Win/Linux(second)
+## Android studio  快捷键 Mac OSX(first) Win/Linux(second)
 
 * 注释代码(//)
 
@@ -161,5 +161,6 @@
 * debug 程序
 `shift + F9`
 
-
+* 关闭页面
+`ctrl + F4`
 
