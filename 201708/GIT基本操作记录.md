@@ -1,3 +1,4 @@
+### GIT基本操作记录
 1. 创建git仓库： 
 	mkdir gitname
 	cd gitname
@@ -33,7 +34,7 @@
 	//但只能回复到上一次提交的版本，删除前在工作区中的修改将会丢失。
 
 8. 关联一个远程库： 
-	git remote add origin git@github.com:AMaker-studying/testgit.git
+	git remote add origin [repository address]
 
 9. 使用分支：
 	git branch //查看分支
@@ -46,8 +47,12 @@
 10. 其他命令	
 	git pull //取回远程主机某个分支的更新,再与本地的指定分支合并
 
-	git stash 可用来暂存当前正在进行的工作， 比如想pull 最新代码， 又不想加新commit， 或者另外一种情况，为了fix 一个紧急的bug, 先stash, 使返回到自己上一个commit, 改完bug之后再stash pop, 继续原来的工作
+	git stash :可用来暂存当前正在进行的工作， 比如想pull 最新代码， 又不想加新commit， 或者另外一种情况，为了fix 一个紧急的bug, 先stash, 使返回到自己上一个commit, 改完bug之后再stash pop, 继续原来的工作
+	
 	基础命令：
+
 		$git stash
+	
 		$do some work
+
 		$git stash pop
