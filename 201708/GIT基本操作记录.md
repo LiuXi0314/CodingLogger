@@ -1,4 +1,5 @@
 ### GIT基本操作记录
+
 1. 创建git仓库： 
 	
 	mkdir gitname
