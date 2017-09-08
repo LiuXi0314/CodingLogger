@@ -20,7 +20,7 @@
 	git reset --hard HEAD^ //回滚至上一次提交的版本。
 	git log //查看提交日志（从时间最近到最远进行排序）
 	git log -- pretty=oneline //查看记录日志信息（简洁化版本）
-	git reset -- hard 231434 //回滚至制定版本
+	git reset --hard 231434 //回滚至制定版本
 	git reset git push-f //先回滚，再强推。可以回滚远程仓库的版本
 
 5. 查看指令：
