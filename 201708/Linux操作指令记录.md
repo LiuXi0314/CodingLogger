@@ -35,4 +35,6 @@
 `scp [主机name]/[主机IP]:~/[dir] 复制文件`
 `scp -r [主机name]/[主机IP]:~/[dir] 复制文件夹带内容`
 
+#### 卸载程序
+`sudo apt-get remove --purge [程序名称]`
 
