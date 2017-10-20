@@ -202,7 +202,7 @@
 	> 利用Runnable在绘制基础UI的基础上再去在当前选中奖品上绘制一个选中ui，间隔一定时间绘制一次，达到动画的效果，并且通过控制间隔时间，是动画具有逐渐变慢的效果。	
 
 	自定义Runnable去执行绘制行为
-	```
+	```java
 	class SweepstakesRunnable implements Runnable {
 
         @Override
