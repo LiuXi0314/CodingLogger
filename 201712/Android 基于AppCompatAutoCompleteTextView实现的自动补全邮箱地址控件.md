@@ -1,9 +1,9 @@
 # Android 基于AppCompatAutoCompleteTextView实现的自动补全邮箱地址控件
 
-标签： Android Email AutoCompleteTextView
+标签：Android  Email  AutoCompleteTextView
 
 ---
-> 近日我司工作上有需求：在用户登录注册时**自动补全用户输入的邮箱账号**（本产品服务于外国友人，所以仅支持邮箱注册），以便于用户操作，给用户一个良好体验。拿到手后感觉并没有什么难度，便火急火燎的去实现了，哪想到一步一坑，克服了一些问题后才有了此篇文章中的劳动成果。因为在实现过程中搜索到的资源利用率不高，便于此记录一下，方便后人乘凉，
+> 近日我司工作上有需求：在用户登录注册时 **自动补全用户输入的邮箱账号**（本产品服务于外国友人，所以仅支持邮箱注册），以便于用户操作，给用户一个良好体验。拿到手后感觉并没有什么难度，便火急火燎的去实现了，哪想到一步一坑，克服了一些问题后才有了此篇文章中的劳动成果。因为在实现过程中搜索到的资源利用率不高，便于此记录一下，方便后人乘凉，
 谨以此篇文章的记录下自己挖坑填坑之旅，且以后在实现需求时要时时告诫自己：**源码拜读一遍，可省三日之功**。
 
 > 参考链接：http://my.oschina.net/fengheju/blog/176656?fromerr=vA0tbaoq
@@ -13,7 +13,7 @@
 本篇文章主要讲述邮箱地址自动补全的功能实现，对于AutoCompleteTextView的基本功能请自行百度或者阅读源码。
 ### 实现思路
 1.利用AutoCompleteTextView + 自定义ArrayAdapter实现pop UI;
-2.重写AutoCompleteTextView 的performFiltering方法，修改此方法传入的原始文本：当用户未输入 **"@"** 时，原始文本置换为 **"@"** ；在输入 **"@"** 后，原始文本置换为 原始文本的 **"@及其之后的部分"** ;当用户输入错误字符时关闭pop。
+2.重写AutoCompleteTextView 的performFiltering方法，修改此方法传入的原始文本：当用户未输入 **@** 时，原始文本置换为 **@** ；在输入 **@** 后，原始文本置换为 原始文本的 **@及其之后的部分** ;当用户输入错误字符时关闭pop。
 ```java 
         @Override
         protected void performFiltering(CharSequence text, int keyCode) {
@@ -29,7 +29,9 @@
             }
         }
 ```
+
 3.由于补全邮箱时我个人想实现的的功能是补全所有含有过滤文本的匹配内容，而不是所有以过滤文本开头的匹配内容，所以只能重写ArrayAdapter 的filter来实现此功能
+
 ```java
  private class ArrayFilter extends Filter {
             @Override
@@ -92,6 +94,7 @@
         }
 ```
 4.AutoCompleteTextView 在点击pop item后会将我们传入的原始值赋值给TextView，但在实现自动补全邮箱域名时，这个结果并不是我们想看到的。所以我们需要去重写AutoCompleteTextView的replaceText()方法，将我们自动补全后的邮箱地址赋值TextView.
+
 ```java
    @Override
     protected void replaceText(CharSequence text) {
@@ -164,7 +167,7 @@ public static <T> List<T> toList(T[] array) {
 ```
 
 
-###完整源码如下：
+### 完整源码如下：
 ```java
 package com.xxxxxxx.view;
 
