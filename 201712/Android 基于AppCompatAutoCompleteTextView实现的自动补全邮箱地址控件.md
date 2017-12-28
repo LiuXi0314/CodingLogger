@@ -1,4 +1,4 @@
-﻿# Android 基于AppCompatAutoCompleteTextView实现的自动补全邮箱地址控件
+# Android 基于AppCompatAutoCompleteTextView实现的自动补全邮箱地址控件
 
 标签： Android Email AutoCompleteTextView
 
@@ -10,10 +10,10 @@
 
 > 文章原址： https://github.com/LiuXi0314/CodingLogger/blob/master/201712/Android%20%E5%9F%BA%E4%BA%8EAppCompatAutoCompleteTextView%E5%AE%9E%E7%8E%B0%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E9%82%AE%E7%AE%B1%E5%9C%B0%E5%9D%80%E6%8E%A7%E4%BB%B6.md 欢迎关注
 
-本篇文章主要讲述邮箱地址自动补全的功能实现，对于AutoCompleteTextView的基本功能请自行百度。
-###实现思路
+本篇文章主要讲述邮箱地址自动补全的功能实现，对于AutoCompleteTextView的基本功能请自行百度或者阅读源码。
+### 实现思路
 1.利用AutoCompleteTextView + 自定义ArrayAdapter实现pop UI;
-2.重写AutoCompleteTextView 的performFiltering方法，修改此方法传入的原始文本：当用户未输入**"@"**时，原始文本置换为**"@"**；在输入**"@"**后，原始文本置换为 原始文本的**"@及其之后的部分"**;当用户输入错误字符时关闭pop。
+2.重写AutoCompleteTextView 的performFiltering方法，修改此方法传入的原始文本：当用户未输入 **"@"** 时，原始文本置换为 **"@"** ；在输入 **"@"** 后，原始文本置换为 原始文本的 **"@及其之后的部分"** ;当用户输入错误字符时关闭pop。
 ```java 
         @Override
         protected void performFiltering(CharSequence text, int keyCode) {
@@ -120,7 +120,7 @@
 
 ```
 
-###遇到的问题：
+### 遇到的问题：
 
 在重写Filter类时需要在publishResults(CharSequence constraint, FilterResults results)方法中将过滤后的结果results赋值到Adapter的origin Value中，修改完此处代码时调试运行，一直遇到一个异常：
 
